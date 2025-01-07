@@ -1,10 +1,8 @@
-# app.py
 import streamlit as st
 from api_handler import LangflowAPI
 from config import Config
 import logging
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
