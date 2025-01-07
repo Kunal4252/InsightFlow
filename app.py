@@ -40,7 +40,7 @@ class ChatApp:
                     key=f"user_{hash(chat['user'])}"
                 )
                 
-                # Assistant response
+               
                 st.markdown("**Assistant:**")
                 with st.expander("Response", expanded=True):
                     if isinstance(chat["assistant"], dict):
@@ -92,11 +92,11 @@ class ChatApp:
                 if submit_button and user_input:
                     self.handle_user_input(user_input)
         
-        # Display chat history
+        
         with st.container():
             self.render_chat_history()
         
-        # Add custom styling
+        
         st.markdown("""
             <style>
                 /* Input area styling */

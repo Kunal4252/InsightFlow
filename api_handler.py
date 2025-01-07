@@ -17,7 +17,7 @@ class LangflowAPI:
     def extract_text_from_response(self, response_data: Dict) -> str:
         """Extract the text content from the API response structure."""
         try:
-            # Navigate through the response structure to get the text
+            
             if "outputs" in response_data and len(response_data["outputs"]) > 0:
                 first_output = response_data["outputs"][0]
                 if "outputs" in first_output and len(first_output["outputs"]) > 0:
@@ -51,12 +51,12 @@ class LangflowAPI:
             str: The extracted text response
         """
         try:
-            # Ensure endpoint is not empty
+            
             if not endpoint:
                 endpoint = Config.FLOW_ID
                 logger.warning(f"Empty endpoint provided, using default FLOW_ID: {endpoint}")
             
-            # Construct API URL with proper endpoint
+          
             api_url = f"{self.base_url}/lf/{self.langflow_id}/api/v1/run/{endpoint}"
             
             payload = {
@@ -80,7 +80,7 @@ class LangflowAPI:
             response = requests.post(api_url, json=payload, headers=headers)
             response.raise_for_status()
             
-            # Extract just the text content from the response
+           
             response_data = response.json()
             return self.extract_text_from_response(response_data)
             
